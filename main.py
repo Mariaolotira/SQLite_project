@@ -10,9 +10,10 @@ db = SqliteDatabase(path.join(connection, "Mariao.db"))
 
 class User(Model):
     name = CharField()
-    email = CharField()
+    email = CharField(unique=True)
     password = CharField()
 
     class Meta:
         database = db
 User.create_table(fail_silently=True)
+
